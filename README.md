@@ -32,4 +32,7 @@ this connection - say `51000`.
 
 1. **Outbound**: the packet leaves your laptop with
    `src = 192.168.1.10:51000`, `dst = 93.184.216.34:80`
+2. **At the router**: NAT rewrites the source to the router's public IP
+   and picks a public port to represent this specific connection:
+   `src = 203.0.113.5:40001`, `dst = 93.184.216.34:80`
 
