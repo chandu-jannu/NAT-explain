@@ -20,3 +20,6 @@ Private IPs are reserved and never routed on the public internet:
 | `10.0.0.0 – 10.255.255.255` | Large networks |
 | `172.16.0.0 – 172.31.255.255` | Medium networks |
 | `192.168.0.0 – 192.168.255.255` | Home networks |
+
+Because these ranges are reused inside millions of separate private
+networks, a packet with a private source address can't be routed across the internet-routers have no idea which of the millions of `192.168.1.10`s. NAT exists to translate that private address into something globally unique before the packet leaves the network.
