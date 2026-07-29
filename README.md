@@ -23,3 +23,10 @@ Private IPs are reserved and never routed on the public internet:
 
 Because these ranges are reused inside millions of separate private
 networks, a packet with a private source address can't be routed across the internet-routers have no idea which of the millions of `192.168.1.10`s. NAT exists to translate that private address into something globally unique before the packet leaves the network.
+
+## How the translation actually works
+ 
+imagine your laptop (`192.168.1.10`) sends a request to a web server
+(`93.184.216.34`) on port 80. Your laptop uses a random local port for
+this connection - say `51000`.
+
