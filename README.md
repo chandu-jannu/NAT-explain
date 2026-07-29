@@ -29,28 +29,28 @@ networks, a packet with a private source address can't be routed across the inte
 imagine your laptop (`192.168.1.10`) sends a request to a web server
 (`93.184.216.34`) on port 80. Your laptop uses a random local port for
 this connection - say `51000`.
+
+1. **Outbound**: the packet leaves your laptop with
+   `src = 192.168.1.10:51000`, `dst = 93.184.216.34:80`
+
+
+2. **At the router**: NAT rewrites the source to the router's public IP
+   and picks a public port to represent this specific connection:
+   `src = 203.0.113.5:40001`, `dst = 93.184.216.34:80`
+
 3. **The router remembers this** in a **NAT table** — a row that maps
    `192.168.1.10:51000 ↔ 203.0.113.5:40001`
-4. **The server replies** to what it believes is the sender:
+
+   4. **The server replies** to what it believes is the sender:
    `src = 93.184.216.34:80`, `dst = 203.0.113.5:40001`
+
 5. **At the router**: it looks up port `40001` in its NAT table, finds
    your laptop's private address, and rewrites the destination back:
    `dst = 192.168.1.10:51000`
 
-1. **Outbound**: the packet leaves your laptop with
-   `src = 192.168.1.10:51000`, `dst = 93.184.216.34:80`
-2. **At the router**: NAT rewrites the source to the router's public IP
-   and picks a public port to represent this specific connection:
-   `src = 203.0.113.5:40001`, `dst = 93.184.216.34:80`
-3. **The router remembers this** in a **NAT table** — a row that maps
-   `192.168.1.10:51000 ↔ 203.0.113.5:40001`
-4. **The server replies** to what it believes is the sender:
-   `src = 93.184.216.34:80`, `dst = 203.0.113.5:40001`
-5. **At the router**: it looks up port `40001` in its NAT table, finds
-   your laptop's private address, and rewrites the destination back:
-   `dst = 192.168.1.10:51000`
 6. **Your laptop receives the reply** as if the router weren't even
    there.
-   The **port number is the key** it lets one public IP represent many simultaneous private devices. this specific technique is called as **PAT(port address translation)** it translates on ports, not just addresses.
+
+The **port number is the key** it lets one public IP represent many simultaneous private devices. this specific technique is called as **PAT(port address translation)** it translates on ports, not just addresses.
 
 
