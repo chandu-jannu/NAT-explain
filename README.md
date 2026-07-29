@@ -30,3 +30,6 @@ imagine your laptop (`192.168.1.10`) sends a request to a web server
 (`93.184.216.34`) on port 80. Your laptop uses a random local port for
 this connection - say `51000`.
 
+1. **Outbound**: the packet leaves your laptop with
+   `src = 192.168.1.10:51000`, `dst = 93.184.216.34:80`
+
