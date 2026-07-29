@@ -41,7 +41,7 @@ this connection - say `51000`.
 3. **The router remembers this** in a **NAT table** — a row that maps
    `192.168.1.10:51000 ↔ 203.0.113.5:40001`
 
-   4. **The server replies** to what it believes is the sender:
+4. **The server replies** to what it believes is the sender:
    `src = 93.184.216.34:80`, `dst = 203.0.113.5:40001`
 
 5. **At the router**: it looks up port `40001` in its NAT table, finds
