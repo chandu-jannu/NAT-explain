@@ -51,5 +51,6 @@ this connection - say `51000`.
    `dst = 192.168.1.10:51000`
 6. **Your laptop receives the reply** as if the router weren't even
    there.
+   The **port number is the key** it lets one public IP represent many simultaneous private devices. this specific technique is called as **PAT(port address translation)** it translates on ports, not just addresses.
 
 
