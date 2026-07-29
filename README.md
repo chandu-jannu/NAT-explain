@@ -53,4 +53,13 @@ this connection - say `51000`.
 
 The **port number is the key** it lets one public IP represent many simultaneous private devices. this specific technique is called as **PAT(port address translation)** it translates on ports, not just addresses.
 
+## 3 Types of NAT
+ 
+| Type | What happens | Common use |
+|---|---|---|
+| **Static NAT** | One private IP always maps to one fixed public IP | Hosting a server behind NAT |
+| **Dynamic NAT** | Private IPs are mapped to public IPs from a shared pool, one-to-one | ISPs with a small public IP pool |
+| **PAT** (most common) | Many private IPs share **one** public IP, distinguished by port | Home and office routers |
+
+
 
